@@ -230,6 +230,7 @@ Configuration file for DFINITY's Internet Computer framework.
 Configuration file for the Rust project.
 
 
+
 # Git Flow Branching Model
 
 We use Git Flow for managing our branching and release process. Below is the information for branch names and prefixes used in the project.
