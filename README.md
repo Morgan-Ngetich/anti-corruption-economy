@@ -228,3 +228,71 @@ Configuration file for DFINITY's Internet Computer framework.
 
 ### `Cargo.toml`
 Configuration file for the Rust project.
+
+
+# Git Flow Branching Model
+
+We use Git Flow for managing our branching and release process. Below is the information for branch names and prefixes used in the project.
+
+### Branches
+
+1. **Main Branch**
+   - **Branch Name**: `main`
+   - **Purpose**: This is the branch for production releases. All code in this branch should be stable and ready for deployment.
+
+2. **Development Branch**
+   - **Branch Name**: `develop`
+   - **Purpose**: This is the branch for the next release development. Features and bug fixes are merged into this branch before they are ready for production.
+
+### Supporting Branches
+
+1. **Feature Branches**
+   - **Prefix**: `feature/`
+   - **Purpose**: Used for developing new features. Branch off from `develop` and merge back into `develop` when the feature is complete.
+
+2. **Bugfix Branches**
+   - **Prefix**: `bugfix/`
+   - **Purpose**: Used for fixing bugs in the code. Branch off from `develop` and merge back into `develop` once the bug is fixed.
+
+3. **Release Branches**
+   - **Prefix**: `release/`
+   - **Purpose**: Used for preparing a new production release. Branch off from `develop` and merge into both `main` and `develop` when the release is ready.
+
+4. **Hotfix Branches**
+   - **Prefix**: `hotfix/`
+   - **Purpose**: Used for urgent fixes to the production code. Branch off from `main` and merge back into both `main` and `develop` when the fix is complete.
+
+5. **Support Branches**
+   - **Prefix**: `support/`
+   - **Purpose**: Used for maintaining old versions or providing support for specific versions.
+
+### Version Tag Prefix
+
+- **Prefix**: `v`
+- **Purpose**: Tags for version releases are prefixed with `v`, e.g., `v1.0.0`.
+
+## How to Use Git Flow
+
+1. **Initialize Git Flow**
+   - Run `git flow init` to set up the branching model in your repository.
+
+2. **Create a New Feature**
+   - Use `git flow feature start <feature-name>` to create a new feature branch.
+   - After completing the feature, use `git flow feature finish <feature-name>` to merge it into `develop`.
+
+3. **Create a New Bugfix**
+   - Use `git flow bugfix start <bugfix-name>` to create a new bugfix branch.
+   - After fixing the bug, use `git flow bugfix finish <bugfix-name>` to merge it into `develop`.
+
+4. **Create a New Release**
+   - Use `git flow release start <version>` to create a release branch.
+   - After preparing the release, use `git flow release finish <version>` to merge it into `main` and `develop`.
+
+5. **Create a Hotfix**
+   - Use `git flow hotfix start <hotfix-name>` to create a hotfix branch.
+   - After applying the hotfix, use `git flow hotfix finish <hotfix-name>` to merge it into `main` and `develop`.
+
+6. **Create a Support Branch**
+   - Use `git flow support start <support-name>` to create a support branch.
+
+By following these guidelines, we ensure a consistent and organized workflow for managing our codebase, releases, and hotfixes.
