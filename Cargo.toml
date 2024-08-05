@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/anti-corruption-economy-backend"
+]
+resolver = "2"

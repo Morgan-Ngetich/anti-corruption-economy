@@ -1,0 +1,45 @@
+{
+  "canisters": {
+    "anti-corruption-economy-backend": {
+      "candid": "src/anti-corruption-economy-backend/anti-corruption-economy-backend.did",
+      "package": "anti-corruption-economy-backend",
+      "type": "rust"
+    },
+    "anti-corruption-economy-frontend": {
+      "dependencies": [
+        "anti-corruption-economy-backend"
+      ],
+      "source": [
+        "src/anti-corruption-economy-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "anti-corruption-economy-frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "bitcoin": {
+      "enabled": true,
+      "log_level": "info",
+      "nodes": [
+        "127.0.0.1:18444"
+      ]
+    },
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
