@@ -23,3 +23,10 @@ dist/
 
 # environment variables
 .env
+
+# github/workflows
+.github/
+
+# deployment key
+deploy_key.pem
+deploy_key.pub
