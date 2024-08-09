@@ -654,179 +654,135 @@ footer p {
 }
 
 
+/* faq section */
+
 .container {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     min-height: 100vh;
-
+    padding: 20px;
 }
-
 
 .content {
-
     display: flex;
-
-    justify-content: space-between;
-
+    flex-direction: column;
     background-color: #222;
-
-    padding: 30px;
-
+    padding: 20px;
     border-radius: 10px;
-
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
 
 .faq-section {
-
     background-color: #333;
-
     padding: 20px;
-
     border-radius: 10px;
-
-    width: 45%;
-
-    margin-right: 20px;
-
+    width: 100%;
+    margin-bottom: 20px;
 }
-
 
 .faq-item {
-
     background-color: #444;
-
     padding: 15px;
-
     margin-bottom: 10px;
-
     border-radius: 5px;
-
     cursor: pointer;
-
     position: relative;
-
 }
-
 
 .faq-item.active {
-
     background-color: #555;
-
 }
-
 
 .faq-title {
-
-    font-size: 18px;
-
+    font-size: 16px;
     margin-bottom: 5px;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
 }
-
 
 .faq-title span {
-
     font-size: 14px;
-
 }
-
 
 .faq-content {
-
     display: none;
-
     padding-left: 20px;
-
 }
-
 
 .form-section {
-
     background-color: #333;
-
     padding: 20px;
-
     border-radius: 10px;
-
-    width: 45%;
-
+    width: 100%;
 }
-
 
 .form-group {
-
     margin-bottom: 15px;
-
 }
-
 
 .form-label {
-
     display: block;
-
     margin-bottom: 5px;
-
     font-weight: bold;
-
 }
-
 
 .form-input {
-
     width: 100%;
-
     padding: 10px;
-
     border: none;
-
     border-radius: 5px;
-
     background-color: #444;
-
     color: #fff;
-
 }
-
 
 .form-button {
-
     background-color: #007bff;
-
     color: #fff;
-
     padding: 10px 20px;
-
     border: none;
-
     border-radius: 5px;
-
     cursor: pointer;
-
     transition: background-color 0.3s ease;
-
 }
-
 
 .form-button:hover {
-
     background-color: #0056b3;
+}
 
+@media screen and (min-width: 768px) {
+    .content {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1000px;
+    }
+
+    .faq-section {
+        width: 48%;
+        margin-right: 2%;
+        margin-bottom: 0;
+    }
+
+    .form-section {
+        width: 48%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 40px;
+    }
+
+    .content {
+        padding: 30px;
+    }
 }
 
 
-
+/* footer */
 
 .container1 {
 

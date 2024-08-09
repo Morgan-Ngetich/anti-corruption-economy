@@ -39,4 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.innerHTML = '<span></span><span></span><span></span>';
         }
     });
+});document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const title = item.querySelector('.faq-title');
+        const content = item.querySelector('.faq-content');
+        const plusIcon = item.querySelector('.plus-icon');
+
+        title.addEventListener('click', () => {
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                content.style.display = 'block';
+                plusIcon.textContent = '-';
+            } else {
+                content.style.display = 'none';
+                plusIcon.textContent = '+';
+            }
+        });
+    });
 });
+
