@@ -1,86 +1,75 @@
+// JavaScript for Transparify - Fight Against Corruption
 
-const faqItems = document.querySelectorAll('.faq-item');
+document.addEventListener("DOMContentLoaded", function () {
 
+    // FAQ Section Toggle
+    const faqItems = document.querySelectorAll('.faq-item');
 
-        faqItems.forEach(item => {
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
 
-            const title = item.querySelector('.faq-title');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
 
-            const content = item.querySelector('.faq-content');
-
-
-            title.addEventListener('click', () => {
-
-                item.classList.toggle('active');
-
-                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-
+            // Close other FAQ items when one is opened
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
             });
-
-        });
-
-// Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
         });
     });
-});
 
-// Modal Popup for Service Cards
-const serviceCards = document.querySelectorAll('.service-card a');
-const modal = document.querySelector('.modal');
-const modalContent = document.querySelector('.modal-content');
-const closeBtn = document.querySelector('.close-btn');
+    // Smooth Scrolling for Links
+    const navLinks = document.querySelectorAll('header .nav-links a, .cta-buttons a, .report-buttons a');
 
-serviceCards.forEach(card => {
-    card.addEventListener('click', function(e) {
-        e.preventDefault();
-        const content = `
-            <h2>${this.parentElement.querySelector('h3').textContent}</h2>
-            <p>${this.parentElement.querySelector('p').textContent}</p>
-            <a href="${this.getAttribute('href')}" target="_blank">Read More</a>
-        `;
-        modalContent.innerHTML = content;
-        modal.style.display = 'block';
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60, // Adjusting for the header height
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+    // Mobile Navigation Menu Toggle
+    const nav = document.querySelector('header nav');
+    const navToggle = document.createElement('div');
+    navToggle.className = 'nav-toggle';
+    navToggle.innerHTML = '&#9776;'; // Hamburger menu icon
 
-window.addEventListener('click', (e) => {
-    if (e.target == modal) {
-        modal.style.display = 'none';
-    }
-});
+    nav.prepend(navToggle);
 
-// Toggle Navigation Menu on Mobile
-const toggleMenu = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+    });
 
-toggleMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+    // Close the mobile menu when a link is clicked
+    const navLinksMobile = document.querySelectorAll('header .nav-links a');
 
-// Scroll to Top Button
-const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('nav-open')) {
+                nav.classList.remove('nav-open');
+            }
+        });
+    });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollToTopBtn.classList.add('visible');
-    } else {
-        scrollToTopBtn.classList.remove('visible');
-    }
-});
+    // Adding the scroll effect to the header
+    const header = document.querySelector('header');
 
-scrollToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 });
